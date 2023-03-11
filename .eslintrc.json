@@ -14,6 +14,19 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "no-console": "off"
+        "no-console": "off",
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "extends",
+                    "apply",
+                    "tailwind",
+                    "components",
+                    "utilities",
+                    "screen"
+                ]
+            }
+        ]
     }
 }
