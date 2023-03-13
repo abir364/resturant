@@ -15,8 +15,6 @@ content.classList.add('bg-gray-900');
 content.appendChild(createHeader());
 
 content.appendChild(createHome());
-content.appendChild(createMenu());
-content.appendChild(createContact());
 
 content.appendChild(createFooter());
 
@@ -26,14 +24,29 @@ home.addEventListener('click',()=>{
   ho.scrollIntoView({behavior: "smooth"});
 });
 
+let mExist = false;
+let cExist = false;
+
 const menu = document.querySelector('.menu');
 menu.addEventListener('click',()=>{
+  if(cExist && !mExist) {
+    content.insertBefore(createMenu(), document.getElementById('contact'));
+    mExist = true;
+  }
+  if(!mExist) {
+    content.insertBefore(createMenu(), document.getElementById('footer'));
+    mExist = true;
+  }
   const me = document.getElementById("menu");
   me.scrollIntoView({behavior: "smooth"});
 });
 
 const contact = document.querySelector('.contact');
 contact.addEventListener('click',()=>{
+  if(!cExist) {
+    content.insertBefore(createContact(), document.getElementById('footer'));
+    cExist = true;
+  }
   const con = document.getElementById("contact");
   con.scrollIntoView({behavior: "smooth"});
 });
