@@ -26,15 +26,15 @@ home.addEventListener('click',()=>{
 
 let mExist = false;
 let cExist = false;
-
+const menuDOM = createMenu();
 const menu = document.querySelector('.menu');
 menu.addEventListener('click',()=>{
   if(cExist && !mExist) {
-    content.insertBefore(createMenu(), document.getElementById('contact'));
+    content.insertBefore(menuDOM, document.getElementById('contact'));
     mExist = true;
   }
   if(!mExist) {
-    content.insertBefore(createMenu(), document.getElementById('footer'));
+    content.insertBefore(menuDOM, document.getElementById('footer'));
     mExist = true;
   }
   const me = document.getElementById("menu");
